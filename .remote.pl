@@ -129,10 +129,12 @@ sub get_image_data_p ($ref) {
 			push @imageDataPromises, sub { parse_manifest_v1_data_p($ref, $manifestData->{manifest}) };
 		}
 		# https://docs.docker.com/registry/spec/manifest-v2-2/
-		elsif ($manifestData->{mediaType} eq Bashbrew::RegistryUserAgent::MEDIA_MANIFEST_V2) {
+		# https://github.com/opencontainers/image-spec/blob/v1.0.2/image-index.md
+		# https://github.com/opencontainers/image-spec/blob/v1.0.2/manifest.md
+		elsif ($manifestData->{mediaType} eq Bashbrew::RegistryUserAgent::MEDIA_MANIFEST_V2 || $manifestData->{mediaType} eq Bashbrew::RegistryUserAgent::MEDIA_OCI_MANIFEST_V1) {
 			push @imageDataPromises, sub { parse_manifest_v2_data_p($ref, $manifestData->{manifest}) };
 		}
-		elsif ($manifestData->{mediaType} eq Bashbrew::RegistryUserAgent::MEDIA_MANIFEST_LIST) {
+		elsif ($manifestData->{mediaType} eq Bashbrew::RegistryUserAgent::MEDIA_MANIFEST_LIST || $manifestData->{mediaType} eq Bashbrew::RegistryUserAgent::MEDIA_OCI_INDEX_V1) {
 			$data->{manifest} = $manifestData->{manifest};
 			$data->{manifestVersion} = $manifestData->{mediaType};
 
@@ -154,7 +156,7 @@ sub get_image_data_p ($ref) {
 					if ($sub->{mediaType} eq Bashbrew::RegistryUserAgent::MEDIA_MANIFEST_V1) {
 						return parse_manifest_v1_data_p($subRef, $subManifest->{manifest})->then($subDataHandler);
 					}
-					elsif ($sub->{mediaType} eq Bashbrew::RegistryUserAgent::MEDIA_MANIFEST_V2) {
+					elsif ($sub->{mediaType} eq Bashbrew::RegistryUserAgent::MEDIA_MANIFEST_V2 || $sub->{mediaType} eq Bashbrew::RegistryUserAgent::MEDIA_OCI_MANIFEST_V1) {
 						return parse_manifest_v2_data_p($subRef, $subManifest->{manifest})->then($subDataHandler);
 					}
 					else {
@@ -247,6 +249,7 @@ sub cmd_to_dockerfile ($cmd, $shell) {
 		my $nopRegex = "\Q#(nop)\E +";
 
 		my $str = $cmd->[0];
+		$str =~ s!^RUN !!; # strip off "RUN" prefix from buildkit (added back later)
 		my @prefix = ();
 		if ($str =~ s!^[|]\d+ (.*?) ($shellRegex)!$2!) {
 			push @prefix, '# ARGS: ' . $1;
@@ -258,8 +261,8 @@ sub cmd_to_dockerfile ($cmd, $shell) {
 			return '# unable to parse image command string further:' . "\n" . $str;
 		}
 		$str =~ s!^$shellRegex!!;
-		unless ($str =~ s!^$nopRegex!!) {
-			# if we don't have "#(nop)", RUN is implied
+		unless ($str =~ s!^$nopRegex!! || $str =~ m!^[A-Z]+ !) {
+			# if we don't have "#(nop)" or something that looks like an all-caps Dockerfile instruction, RUN is implied
 			$str = 'RUN ' . $str;
 		}
 		return join "\n", @prefix, $str;

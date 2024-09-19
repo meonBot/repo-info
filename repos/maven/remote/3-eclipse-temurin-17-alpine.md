@@ -1,0 +1,105 @@
+## `maven:3-eclipse-temurin-17-alpine`
+
+```console
+$ docker pull maven@sha256:b7718bc263055ec68ab715d541e884c672006476185d070462c2fc7d8d39c095
+```
+
+-	Manifest MIME: `application/vnd.docker.distribution.manifest.list.v2+json`
+-	Platforms: 1
+	-	linux; amd64
+
+### `maven:3-eclipse-temurin-17-alpine` - linux; amd64
+
+```console
+$ docker pull maven@sha256:a17f1d7b285699693fecaad4830f2c1c96ef17b0c21f325c648b81bf2097f163
+```
+
+-	Manifest MIME: `application/vnd.docker.distribution.manifest.v2+json`
+-	Total Size: **215.2 MB (215160825 bytes)**  
+	(compressed transfer size, not on-disk size)
+-	Image ID: `sha256:91fb4fb6d904361981a0dc827072845962bccca27c12fab19c4a749284138208`
+-	Entrypoint: `["\/usr\/local\/bin\/mvn-entrypoint.sh"]`
+-	Default Command: `["mvn"]`
+
+```dockerfile
+# Tue, 09 May 2023 23:11:10 GMT
+ADD file:7625ddfd589fb824ee39f1b1eb387b98f3676420ff52f26eb9d975151e889667 in / 
+# Tue, 09 May 2023 23:11:10 GMT
+CMD ["/bin/sh"]
+# Wed, 24 May 2023 23:34:27 GMT
+ENV JAVA_HOME=/opt/java/openjdk
+# Wed, 24 May 2023 23:34:27 GMT
+ENV PATH=/opt/java/openjdk/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
+# Wed, 24 May 2023 23:34:27 GMT
+ENV LANG=en_US.UTF-8 LANGUAGE=en_US:en LC_ALL=en_US.UTF-8
+# Wed, 24 May 2023 23:34:29 GMT
+RUN apk add --no-cache fontconfig libretls musl-locales musl-locales-lang ttf-dejavu tzdata zlib     && rm -rf /var/cache/apk/*
+# Wed, 24 May 2023 23:35:41 GMT
+ENV JAVA_VERSION=jdk-17.0.7+7
+# Wed, 24 May 2023 23:35:51 GMT
+RUN set -eux;     ARCH="$(apk --print-arch)";     case "${ARCH}" in        amd64|x86_64)          ESUM='b6edac2fa669876ef16b4895b36b61d01066626e7a69feba2acc19760c8d18cb';          BINARY_URL='https://github.com/adoptium/temurin17-binaries/releases/download/jdk-17.0.7%2B7/OpenJDK17U-jdk_x64_alpine-linux_hotspot_17.0.7_7.tar.gz';          ;;        *)          echo "Unsupported arch: ${ARCH}";          exit 1;          ;;     esac; 	  wget -O /tmp/openjdk.tar.gz ${BINARY_URL}; 	  echo "${ESUM} */tmp/openjdk.tar.gz" | sha256sum -c -; 	  mkdir -p "$JAVA_HOME"; 	  tar --extract 	      --file /tmp/openjdk.tar.gz 	      --directory "$JAVA_HOME" 	      --strip-components 1 	      --no-same-owner 	  ;     rm -f /tmp/openjdk.tar.gz ${JAVA_HOME}/src.zip;
+# Wed, 24 May 2023 23:35:53 GMT
+RUN echo Verifying install ...     && fileEncoding="$(echo 'System.out.println(System.getProperty("file.encoding"))' | jshell -s -)"; [ "$fileEncoding" = 'UTF-8' ]; rm -rf ~/.java     && echo javac --version && javac --version     && echo java --version && java --version     && echo Complete.
+# Wed, 24 May 2023 23:35:53 GMT
+CMD ["jshell"]
+# Tue, 16 May 2023 11:35:55 GMT
+RUN apk add --no-cache bash procps curl tar # buildkit
+# Tue, 16 May 2023 11:35:55 GMT
+ENV MAVEN_HOME=/usr/share/maven
+# Tue, 16 May 2023 11:35:55 GMT
+COPY /usr/share/maven /usr/share/maven # buildkit
+# Tue, 16 May 2023 11:35:55 GMT
+COPY /usr/local/bin/mvn-entrypoint.sh /usr/local/bin/mvn-entrypoint.sh # buildkit
+# Tue, 16 May 2023 11:35:55 GMT
+COPY /usr/share/maven/ref/settings-docker.xml /usr/share/maven/ref/settings-docker.xml # buildkit
+# Tue, 16 May 2023 11:35:55 GMT
+RUN ln -s ${MAVEN_HOME}/bin/mvn /usr/bin/mvn # buildkit
+# Tue, 16 May 2023 11:35:55 GMT
+ARG MAVEN_VERSION=3.9.2
+# Tue, 16 May 2023 11:35:55 GMT
+ARG USER_HOME_DIR=/root
+# Tue, 16 May 2023 11:35:55 GMT
+ENV MAVEN_CONFIG=/root/.m2
+# Tue, 16 May 2023 11:35:55 GMT
+ENTRYPOINT ["/usr/local/bin/mvn-entrypoint.sh"]
+# Tue, 16 May 2023 11:35:55 GMT
+CMD ["mvn"]
+```
+
+-	Layers:
+	-	`sha256:8a49fdb3b6a5ff2bd8ec6a86c05b2922a0f7454579ecc07637e94dfd1d0639b6`  
+		Last Modified: Tue, 09 May 2023 23:11:26 GMT  
+		Size: 3.4 MB (3397490 bytes)  
+		MIME: application/vnd.docker.image.rootfs.diff.tar.gzip
+	-	`sha256:fdde4a302e0d0ee2ef6760bf84344d762835ef2d38d2a1a1062c7d038fe2615b`  
+		Last Modified: Wed, 24 May 2023 23:37:36 GMT  
+		Size: 7.6 MB (7648427 bytes)  
+		MIME: application/vnd.docker.image.rootfs.diff.tar.gzip
+	-	`sha256:2dfbdc7f3eb740ed1e0b20ddcad0dbd98fe3845d43f8da9a609b58321b3f2d11`  
+		Last Modified: Wed, 24 May 2023 23:39:05 GMT  
+		Size: 191.9 MB (191925930 bytes)  
+		MIME: application/vnd.docker.image.rootfs.diff.tar.gzip
+	-	`sha256:f28ac9cf7633d0362aff771f25b0f533a500ec7682931a30c75deab7d058cb73`  
+		Last Modified: Wed, 24 May 2023 23:38:52 GMT  
+		Size: 176.0 B  
+		MIME: application/vnd.docker.image.rootfs.diff.tar.gzip
+	-	`sha256:cb91804f8884866c854d7ebd0c51844714f3df91d18f0b8e82d0079e3f8179c9`  
+		Last Modified: Thu, 25 May 2023 00:24:48 GMT  
+		Size: 2.9 MB (2872996 bytes)  
+		MIME: application/vnd.docker.image.rootfs.diff.tar.gzip
+	-	`sha256:191fda65fbfe610d2af8a9a57334df4a5d7cee2115f96847b5023e6e052b1d7b`  
+		Last Modified: Thu, 25 May 2023 00:24:48 GMT  
+		Size: 9.3 MB (9314429 bytes)  
+		MIME: application/vnd.docker.image.rootfs.diff.tar.gzip
+	-	`sha256:07ddd73d3f849fece5ffaedadccdd84173ba662d41a0bad5dfde5b4bd7d4222c`  
+		Last Modified: Thu, 25 May 2023 00:24:47 GMT  
+		Size: 860.0 B  
+		MIME: application/vnd.docker.image.rootfs.diff.tar.gzip
+	-	`sha256:45c793d623f527b55060dda5ba83aa7027f519943b3578e4c470b8905b750c32`  
+		Last Modified: Thu, 25 May 2023 00:24:47 GMT  
+		Size: 354.0 B  
+		MIME: application/vnd.docker.image.rootfs.diff.tar.gzip
+	-	`sha256:a4c27ed35f57f3e1a4ce35840bcf079367e8496e9c43c28a61bd2949123905ff`  
+		Last Modified: Thu, 25 May 2023 00:24:47 GMT  
+		Size: 163.0 B  
+		MIME: application/vnd.docker.image.rootfs.diff.tar.gzip

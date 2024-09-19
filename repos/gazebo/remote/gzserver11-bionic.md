@@ -1,7 +1,7 @@
 ## `gazebo:gzserver11-bionic`
 
 ```console
-$ docker pull gazebo@sha256:857fc5434e37bc0ddfe05cc578f3fc1e178acdea9ec72a1d4aa1b63025623b5a
+$ docker pull gazebo@sha256:671b5d64aa00651078c068a7eee92faf6beacce641d5d992fd19a54f5d866930
 ```
 
 -	Manifest MIME: `application/vnd.docker.distribution.manifest.list.v2+json`
@@ -11,68 +11,76 @@ $ docker pull gazebo@sha256:857fc5434e37bc0ddfe05cc578f3fc1e178acdea9ec72a1d4aa1
 ### `gazebo:gzserver11-bionic` - linux; amd64
 
 ```console
-$ docker pull gazebo@sha256:a4289ea8f3df1198553c65fd6e6e397224c13db41bfe89d1172b50dd9bbf9cdd
+$ docker pull gazebo@sha256:fd9d5cab7ddbe77b76eff610f5486e53a3788a2c4acdd4cb69921ad8ebf84a7b
 ```
 
--	Docker Version: 20.10.7
+-	Docker Version: 20.10.23
 -	Manifest MIME: `application/vnd.docker.distribution.manifest.v2+json`
--	Total Size: **277.5 MB (277462475 bytes)**  
+-	Total Size: **277.8 MB (277839235 bytes)**  
 	(compressed transfer size, not on-disk size)
--	Image ID: `sha256:82b56f5661558af48703c71b31c8eada33fcdac5e447782d187980bacf1e05c9`
+-	Image ID: `sha256:43ad9a1fa9ed033d4b65625af6633b6859f36e94ec1056c3511585ca868c6f0c`
 -	Entrypoint: `["\/gzserver_entrypoint.sh"]`
 -	Default Command: `["gzserver"]`
 
 ```dockerfile
-# Fri, 01 Oct 2021 02:23:23 GMT
-ADD file:0d82cd095966e8ee78b593cb47a352eec842edb7bd9d9468e8a70154522447d1 in / 
-# Fri, 01 Oct 2021 02:23:24 GMT
-CMD ["bash"]
-# Fri, 01 Oct 2021 04:52:50 GMT
+# Tue, 30 May 2023 09:32:07 GMT
+ARG RELEASE
+# Tue, 30 May 2023 09:32:07 GMT
+ARG LAUNCHPAD_BUILD_ARCH
+# Tue, 30 May 2023 09:32:07 GMT
+LABEL org.opencontainers.image.ref.name=ubuntu
+# Tue, 30 May 2023 09:32:07 GMT
+LABEL org.opencontainers.image.version=18.04
+# Tue, 30 May 2023 09:32:09 GMT
+ADD file:3c74e7e08cbf9a87694ce6fa541af617599680fa54d9e48556fc0fbc120b4a83 in / 
+# Tue, 30 May 2023 09:32:09 GMT
+CMD ["/bin/bash"]
+# Fri, 02 Jun 2023 00:55:18 GMT
 RUN echo 'Etc/UTC' > /etc/timezone &&     ln -s /usr/share/zoneinfo/Etc/UTC /etc/localtime &&     apt-get update &&     apt-get install -q -y --no-install-recommends tzdata &&     rm -rf /var/lib/apt/lists/*
-# Fri, 01 Oct 2021 04:53:03 GMT
+# Fri, 02 Jun 2023 00:55:37 GMT
 RUN apt-get update && apt-get install -q -y --no-install-recommends     dirmngr     gnupg2     lsb-release     && rm -rf /var/lib/apt/lists/*
-# Fri, 01 Oct 2021 04:53:09 GMT
+# Fri, 02 Jun 2023 00:55:39 GMT
 RUN apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys D2486D2DD83DB69272AFE98867170598AF249743
-# Fri, 01 Oct 2021 04:53:10 GMT
+# Fri, 02 Jun 2023 00:55:39 GMT
 RUN . /etc/os-release     && echo "deb http://packages.osrfoundation.org/gazebo/$ID-stable `lsb_release -sc` main" > /etc/apt/sources.list.d/gazebo-latest.list
-# Fri, 01 Oct 2021 05:00:26 GMT
-RUN apt-get update && apt-get install -y --no-install-recommends     gazebo11=11.8.1-1*     && rm -rf /var/lib/apt/lists/*
-# Fri, 01 Oct 2021 05:00:28 GMT
+# Fri, 02 Jun 2023 00:58:16 GMT
+RUN apt-get update && apt-get install -y --no-install-recommends     gazebo11=11.13.0-1*     && rm -rf /var/lib/apt/lists/*
+# Fri, 02 Jun 2023 00:58:17 GMT
 EXPOSE 11345
-# Fri, 01 Oct 2021 05:00:28 GMT
+# Fri, 02 Jun 2023 00:58:17 GMT
 COPY file:b79966dec12c55a0a5c9e673326cc3faf9cbbeee0ea5f172e863df237eb8a601 in / 
-# Fri, 01 Oct 2021 05:00:28 GMT
+# Fri, 02 Jun 2023 00:58:17 GMT
 ENTRYPOINT ["/gzserver_entrypoint.sh"]
-# Fri, 01 Oct 2021 05:00:29 GMT
+# Fri, 02 Jun 2023 00:58:18 GMT
 CMD ["gzserver"]
 ```
 
 -	Layers:
-	-	`sha256:284055322776031bac33723839acb0db2d063a525ba4fa1fd268a831c7553b26`  
-		Last Modified: Fri, 01 Oct 2021 02:25:02 GMT  
-		Size: 26.7 MB (26705075 bytes)  
+	-	`sha256:41af1b5f0f51947706ae712999cf098bef968a7799e7cb4bb2268829e62a6ab3`  
+		Last Modified: Fri, 02 Jun 2023 00:09:06 GMT  
+		Size: 26.7 MB (26717357 bytes)  
 		MIME: application/vnd.docker.image.rootfs.diff.tar.gzip
-	-	`sha256:3be57c60580131e55159e03672358dbc415078de9b8d6b73691837b848489424`  
-		Last Modified: Fri, 01 Oct 2021 05:12:47 GMT  
-		Size: 840.7 KB (840739 bytes)  
+	-	`sha256:bc27456075680427d55e79ddce0ccec278d1f81ab5181d13386de5ac3f085b90`  
+		Last Modified: Fri, 02 Jun 2023 01:02:13 GMT  
+		Size: 818.9 KB (818915 bytes)  
 		MIME: application/vnd.docker.image.rootfs.diff.tar.gzip
-	-	`sha256:385846ca0d15120a037d2cc3a853015e25edde30cd5be1a40ef2fb7d9f8c2a11`  
-		Last Modified: Fri, 01 Oct 2021 05:12:47 GMT  
-		Size: 14.7 MB (14703032 bytes)  
+	-	`sha256:208a5fc38d6686d09afe4c36d24561e6952f5e2a37e4fe3aed10fc679393e454`  
+		Last Modified: Fri, 02 Jun 2023 01:02:13 GMT  
+		Size: 14.7 MB (14714619 bytes)  
 		MIME: application/vnd.docker.image.rootfs.diff.tar.gzip
-	-	`sha256:7fd8248f6f5fe1f59e4c79a671cb199bc9da0529b1e7c7549dc978c92eb93d81`  
-		Last Modified: Fri, 01 Oct 2021 05:12:44 GMT  
-		Size: 1.4 KB (1440 bytes)  
+	-	`sha256:e8f1c4414805c51da59d1c81cf6d3cdb4a6416e4b1523359595d62645908563b`  
+		Last Modified: Fri, 02 Jun 2023 01:02:10 GMT  
+		Size: 1.4 KB (1441 bytes)  
 		MIME: application/vnd.docker.image.rootfs.diff.tar.gzip
-	-	`sha256:05ff515e08b456436e1bc3aec3fc5de6c8300bdc9ed65a4c3dbf8cc01b1e0ad7`  
-		Last Modified: Fri, 01 Oct 2021 05:12:44 GMT  
-		Size: 5.5 KB (5454 bytes)  
+	-	`sha256:3f7c470423b35bccea898315bb522fff6efe67c1fa66231d3d86719a7f7a9863`  
+		Last Modified: Fri, 02 Jun 2023 01:02:10 GMT  
+		Size: 5.5 KB (5457 bytes)  
 		MIME: application/vnd.docker.image.rootfs.diff.tar.gzip
-	-	`sha256:7ed413fe2d62cf733a17586a5f44b858c4ba9cfbb527473983bd454c1b39e876`  
-		Last Modified: Fri, 01 Oct 2021 05:14:28 GMT  
-		Size: 235.2 MB (235206546 bytes)  
+	-	`sha256:1eb88345d023b392cd3408b3c810acc86f53c792051de6fd2e9069e9de312a81`  
+		Last Modified: Fri, 02 Jun 2023 01:02:37 GMT  
+		Size: 235.6 MB (235581256 bytes)  
 		MIME: application/vnd.docker.image.rootfs.diff.tar.gzip
-	-	`sha256:f8689fd4b24de947fab736e21aa7690b6407db28de30f1a9800387842bdf9570`  
-		Last Modified: Fri, 01 Oct 2021 05:14:01 GMT  
-		Size: 189.0 B  
+	-	`sha256:827441c984c9f0878ee0294f1cf4e8de836c7d902ecb38d232d8b671a480e4f1`  
+		Last Modified: Fri, 02 Jun 2023 01:02:10 GMT  
+		Size: 190.0 B  
 		MIME: application/vnd.docker.image.rootfs.diff.tar.gzip

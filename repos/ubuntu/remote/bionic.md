@@ -1,10 +1,10 @@
 ## `ubuntu:bionic`
 
 ```console
-$ docker pull ubuntu@sha256:bfb4cabd667790ead5c95d9fe341937f0c21118fa79bc768d51c5da9d1dbe917
+$ docker pull ubuntu@sha256:152dc042452c496007f07ca9127571cb9c29697f42acbfad72324b2bb2e43c98
 ```
 
--	Manifest MIME: `application/vnd.docker.distribution.manifest.list.v2+json`
+-	Manifest MIME: `application/vnd.oci.image.index.v1+json`
 -	Platforms: 6
 	-	linux; amd64
 	-	linux; arm variant v7
@@ -16,155 +16,203 @@ $ docker pull ubuntu@sha256:bfb4cabd667790ead5c95d9fe341937f0c21118fa79bc768d51c
 ### `ubuntu:bionic` - linux; amd64
 
 ```console
-$ docker pull ubuntu@sha256:fc0d6af5ab38dab33aa53643c4c4b312c6cd1f044c1a2229b2743b252b9689fc
+$ docker pull ubuntu@sha256:dca176c9663a7ba4c1f0e710986f5a25e672842963d95b960191e2d9f7185ebe
 ```
 
--	Docker Version: 20.10.7
+-	Docker Version: 20.10.21
 -	Manifest MIME: `application/vnd.docker.distribution.manifest.v2+json`
--	Total Size: **26.7 MB (26705075 bytes)**  
+-	Total Size: **25.7 MB (25691281 bytes)**  
 	(compressed transfer size, not on-disk size)
--	Image ID: `sha256:5a214d77f5d747e6ed81632310baa6190301feeb875cf6bf9da560108fa09972`
--	Default Command: `["bash"]`
+-	Image ID: `sha256:f9a80a55f492e823bf5d51f1bd5f87ea3eed1cb31788686aa99a2fb61a27af6a`
+-	Default Command: `["\/bin\/bash"]`
 
 ```dockerfile
-# Fri, 01 Oct 2021 02:23:23 GMT
-ADD file:0d82cd095966e8ee78b593cb47a352eec842edb7bd9d9468e8a70154522447d1 in / 
-# Fri, 01 Oct 2021 02:23:24 GMT
-CMD ["bash"]
+# Tue, 30 May 2023 09:32:07 GMT
+ARG RELEASE
+# Tue, 30 May 2023 09:32:07 GMT
+ARG LAUNCHPAD_BUILD_ARCH
+# Tue, 30 May 2023 09:32:07 GMT
+LABEL org.opencontainers.image.ref.name=ubuntu
+# Tue, 30 May 2023 09:32:07 GMT
+LABEL org.opencontainers.image.version=18.04
+# Tue, 30 May 2023 09:32:09 GMT
+ADD file:3c74e7e08cbf9a87694ce6fa541af617599680fa54d9e48556fc0fbc120b4a83 in / 
+# Tue, 30 May 2023 09:32:09 GMT
+CMD ["/bin/bash"]
 ```
 
 -	Layers:
-	-	`sha256:284055322776031bac33723839acb0db2d063a525ba4fa1fd268a831c7553b26`  
-		Last Modified: Fri, 01 Oct 2021 02:25:02 GMT  
-		Size: 26.7 MB (26705075 bytes)  
-		MIME: application/vnd.docker.image.rootfs.diff.tar.gzip
+	-	`sha256:7c457f213c7634afb95a0fb2410a74b7b5bc0ba527033362c240c7a11bef4331`  
+		Last Modified: Tue, 30 May 2023 10:03:37 GMT  
+		Size: 25.7 MB (25691281 bytes)  
+		MIME: application/vnd.oci.image.layer.v1.tar+gzip
 
 ### `ubuntu:bionic` - linux; arm variant v7
 
 ```console
-$ docker pull ubuntu@sha256:3e30324cd69917410983687854bf0f31f03c9dd4ecdbd55f75068f989a318def
+$ docker pull ubuntu@sha256:f9d8624e98e31a551d490e0bc3e1ea76319974ddae819c641be1158857b3ddc7
 ```
 
--	Docker Version: 20.10.7
+-	Docker Version: 20.10.21
 -	Manifest MIME: `application/vnd.docker.distribution.manifest.v2+json`
--	Total Size: **22.3 MB (22304304 bytes)**  
+-	Total Size: **21.4 MB (21399001 bytes)**  
 	(compressed transfer size, not on-disk size)
--	Image ID: `sha256:ae20adc023075c337e050411d61c993daf3bf85180e287addf9b7a6bce6fa7b4`
--	Default Command: `["bash"]`
+-	Image ID: `sha256:e1317ca4808cd9de6f8eb6c62a64e98491db236396ded4d5c2a6fa959e6d69b9`
+-	Default Command: `["\/bin\/bash"]`
 
 ```dockerfile
-# Sat, 02 Oct 2021 05:58:32 GMT
-ADD file:ec8cec062962fe6498197aa4bfaf1953505e272985dda8d5e81465521d850fac in / 
-# Sat, 02 Oct 2021 05:58:33 GMT
-CMD ["bash"]
+# Tue, 30 May 2023 09:52:11 GMT
+ARG RELEASE
+# Tue, 30 May 2023 09:52:12 GMT
+ARG LAUNCHPAD_BUILD_ARCH
+# Tue, 30 May 2023 09:52:12 GMT
+LABEL org.opencontainers.image.ref.name=ubuntu
+# Tue, 30 May 2023 09:52:12 GMT
+LABEL org.opencontainers.image.version=18.04
+# Tue, 30 May 2023 09:52:20 GMT
+ADD file:d570ab6bd7d664cc6547b6ae228cf825333d9d841969911c7d62afe3ed440803 in / 
+# Tue, 30 May 2023 09:52:21 GMT
+CMD ["/bin/bash"]
 ```
 
 -	Layers:
-	-	`sha256:0fe312f6db8a357ff205c74a1649d8c36186a76057c3223acbd31367e2dfd049`  
-		Last Modified: Sat, 02 Oct 2021 06:02:32 GMT  
-		Size: 22.3 MB (22304304 bytes)  
-		MIME: application/vnd.docker.image.rootfs.diff.tar.gzip
+	-	`sha256:33728956a279755bb5e348de30626ffff0023b589d4fae264c2722ad7c06e207`  
+		Last Modified: Tue, 30 May 2023 10:03:48 GMT  
+		Size: 21.4 MB (21399001 bytes)  
+		MIME: application/vnd.oci.image.layer.v1.tar+gzip
 
 ### `ubuntu:bionic` - linux; arm64 variant v8
 
 ```console
-$ docker pull ubuntu@sha256:4b114761663a63948fcd36ef36315b31370c52e59546cf32fee60a8fb16aeddf
+$ docker pull ubuntu@sha256:f97a5103cca28097326814718e711c9c41b54853c26959d73495e40b1dd608f2
 ```
 
--	Docker Version: 20.10.7
+-	Docker Version: 20.10.21
 -	Manifest MIME: `application/vnd.docker.distribution.manifest.v2+json`
--	Total Size: **23.7 MB (23727476 bytes)**  
+-	Total Size: **22.7 MB (22713516 bytes)**  
 	(compressed transfer size, not on-disk size)
--	Image ID: `sha256:9b6441fe3d04f510c10053f360ce7ab676bfb87f098a8cfb8ded445722fcb261`
--	Default Command: `["bash"]`
+-	Image ID: `sha256:d1a528908992e9b5bcff8329a22de1749007d0eeeccb93ab85dd5a822b8d46a0`
+-	Default Command: `["\/bin\/bash"]`
 
 ```dockerfile
-# Fri, 01 Oct 2021 02:43:40 GMT
-ADD file:35e2504756850fc1add00516fa89b0499b59c348457a96708eedb61313e7b25e in / 
-# Fri, 01 Oct 2021 02:43:41 GMT
-CMD ["bash"]
+# Tue, 30 May 2023 09:39:04 GMT
+ARG RELEASE
+# Tue, 30 May 2023 09:39:04 GMT
+ARG LAUNCHPAD_BUILD_ARCH
+# Tue, 30 May 2023 09:39:04 GMT
+LABEL org.opencontainers.image.ref.name=ubuntu
+# Tue, 30 May 2023 09:39:04 GMT
+LABEL org.opencontainers.image.version=18.04
+# Tue, 30 May 2023 09:39:09 GMT
+ADD file:f56078e320535ad36864a2a30efa5b760ae65dd324cea9d75f01388b17e1183c in / 
+# Tue, 30 May 2023 09:39:10 GMT
+CMD ["/bin/bash"]
 ```
 
 -	Layers:
-	-	`sha256:f46992f278c2dd50c481ff60ce8528b6eb59016ac6243e1a7fb385c79c5944b9`  
-		Last Modified: Fri, 01 Oct 2021 02:45:30 GMT  
-		Size: 23.7 MB (23727476 bytes)  
-		MIME: application/vnd.docker.image.rootfs.diff.tar.gzip
+	-	`sha256:064a9bb4736de1b2446f528e4eb37335378392cf9b95043d3e9970e253861702`  
+		Last Modified: Tue, 30 May 2023 10:03:42 GMT  
+		Size: 22.7 MB (22713516 bytes)  
+		MIME: application/vnd.oci.image.layer.v1.tar+gzip
 
 ### `ubuntu:bionic` - linux; 386
 
 ```console
-$ docker pull ubuntu@sha256:ca98d3a711fd16c1e7565be9d2668f90c3f5eba708cc538ac902bb2da269bdeb
+$ docker pull ubuntu@sha256:fc896f56642f382e99601461c683dee1534f0d4cb7e17bcb3494d5ed0f3a8a06
 ```
 
--	Docker Version: 20.10.7
+-	Docker Version: 20.10.21
 -	Manifest MIME: `application/vnd.docker.distribution.manifest.v2+json`
--	Total Size: **27.2 MB (27158466 bytes)**  
+-	Total Size: **26.1 MB (26100852 bytes)**  
 	(compressed transfer size, not on-disk size)
--	Image ID: `sha256:b44056bbf2d5ce1042c35164084bcb51ba0c185a4033c2aad7417fdd8c6346cb`
--	Default Command: `["bash"]`
+-	Image ID: `sha256:70288ee657e2ad33414f7475c58f2127130d1e4f5b594ad56c992bdf45a6bacc`
+-	Default Command: `["\/bin\/bash"]`
 
 ```dockerfile
-# Fri, 01 Oct 2021 03:46:35 GMT
-ADD file:6718b956b86d332e4a53184568ac5205e92f9edeba804c64254e3b2da6e66c72 in / 
-# Fri, 01 Oct 2021 03:46:36 GMT
-CMD ["bash"]
+# Tue, 30 May 2023 09:32:11 GMT
+ARG RELEASE
+# Tue, 30 May 2023 09:32:12 GMT
+ARG LAUNCHPAD_BUILD_ARCH
+# Tue, 30 May 2023 09:32:12 GMT
+LABEL org.opencontainers.image.ref.name=ubuntu
+# Tue, 30 May 2023 09:32:12 GMT
+LABEL org.opencontainers.image.version=18.04
+# Tue, 30 May 2023 09:32:14 GMT
+ADD file:1f856710b4bf82e95a940e08c6167ef4775a430a38fd2fb575ad7743bacb39b6 in / 
+# Tue, 30 May 2023 09:32:15 GMT
+CMD ["/bin/bash"]
 ```
 
 -	Layers:
-	-	`sha256:96391085795d2daa9755c58002e78a76eecf7fd57a1d8a3778e87b0079ed47e9`  
-		Last Modified: Fri, 01 Oct 2021 03:47:35 GMT  
-		Size: 27.2 MB (27158466 bytes)  
-		MIME: application/vnd.docker.image.rootfs.diff.tar.gzip
+	-	`sha256:3f6c0c474444aad1f51506c3093030e0c946e7e05f0103171197fe2546a31720`  
+		Last Modified: Tue, 30 May 2023 10:03:54 GMT  
+		Size: 26.1 MB (26100852 bytes)  
+		MIME: application/vnd.oci.image.layer.v1.tar+gzip
 
 ### `ubuntu:bionic` - linux; ppc64le
 
 ```console
-$ docker pull ubuntu@sha256:f75b0b32820c0229de43c0f4cca204d7b89e313646a841af83b01f30899d9c3d
+$ docker pull ubuntu@sha256:f9a073fd91492a05f242ea30fd09deb6deabd8f11c5829eea984711fcd05dd01
 ```
 
--	Docker Version: 20.10.7
+-	Docker Version: 20.10.21
 -	Manifest MIME: `application/vnd.docker.distribution.manifest.v2+json`
--	Total Size: **30.4 MB (30432921 bytes)**  
+-	Total Size: **29.4 MB (29350502 bytes)**  
 	(compressed transfer size, not on-disk size)
--	Image ID: `sha256:347ea08a02a7ade90a20742656653734524421c3b962f9745e875b78871c96d5`
--	Default Command: `["bash"]`
+-	Image ID: `sha256:2e6e782d0b5b700a6de2f2fe068544d7bf7d4f7050b8ac226dfb1a2c08a4a341`
+-	Default Command: `["\/bin\/bash"]`
 
 ```dockerfile
-# Tue, 05 Oct 2021 11:07:29 GMT
-ADD file:fd96554dfb72307c3cf9292c343050a8b9f0848735b7555820f0068914ebd758 in / 
-# Tue, 05 Oct 2021 11:07:35 GMT
-CMD ["bash"]
+# Tue, 30 May 2023 09:33:21 GMT
+ARG RELEASE
+# Tue, 30 May 2023 09:33:21 GMT
+ARG LAUNCHPAD_BUILD_ARCH
+# Tue, 30 May 2023 09:33:21 GMT
+LABEL org.opencontainers.image.ref.name=ubuntu
+# Tue, 30 May 2023 09:33:21 GMT
+LABEL org.opencontainers.image.version=18.04
+# Tue, 30 May 2023 09:33:24 GMT
+ADD file:0c5b3fc2318612ae30bebd058c1384994f4ee2f836b73d82bd9792993ad4b37c in / 
+# Tue, 30 May 2023 09:33:24 GMT
+CMD ["/bin/bash"]
 ```
 
 -	Layers:
-	-	`sha256:db28fc1e594e5598e665c54ac1b7fd602d86dddaf8bb237a72303cec22a9185c`  
-		Last Modified: Tue, 05 Oct 2021 11:10:31 GMT  
-		Size: 30.4 MB (30432921 bytes)  
-		MIME: application/vnd.docker.image.rootfs.diff.tar.gzip
+	-	`sha256:98a0461ace5bb1ed4fe07d41b9a9492f383abc089fa0873807ae5697bb052185`  
+		Last Modified: Tue, 30 May 2023 10:03:59 GMT  
+		Size: 29.4 MB (29350502 bytes)  
+		MIME: application/vnd.oci.image.layer.v1.tar+gzip
 
 ### `ubuntu:bionic` - linux; s390x
 
 ```console
-$ docker pull ubuntu@sha256:66504687c64ca60db9f451c76c8306af50b276c28c614f18c4ae34007fa244ad
+$ docker pull ubuntu@sha256:d703aed6386f192b5287ed5f79b9548055a59edea4166bbe38cdc1b427b999b8
 ```
 
--	Docker Version: 20.10.7
+-	Docker Version: 20.10.21
 -	Manifest MIME: `application/vnd.docker.distribution.manifest.v2+json`
--	Total Size: **25.4 MB (25362918 bytes)**  
+-	Total Size: **24.8 MB (24751131 bytes)**  
 	(compressed transfer size, not on-disk size)
--	Image ID: `sha256:75982df0039a45ad1d04b6976b7f279d80594692b7f8b14d2368bc2fe746062b`
--	Default Command: `["bash"]`
+-	Image ID: `sha256:a2bc6dbb98e72bc1140977c547bbe933ed0a075ba03899c541b0c3ba9f0f90a1`
+-	Default Command: `["\/bin\/bash"]`
 
 ```dockerfile
-# Fri, 01 Oct 2021 01:42:17 GMT
-ADD file:d248d4b5739ee5d07e920ec481dc4af81b314aa52e64618322197a642394a41d in / 
-# Fri, 01 Oct 2021 01:42:19 GMT
-CMD ["bash"]
+# Tue, 30 May 2023 09:26:28 GMT
+ARG RELEASE
+# Tue, 30 May 2023 09:26:28 GMT
+ARG LAUNCHPAD_BUILD_ARCH
+# Tue, 30 May 2023 09:26:28 GMT
+LABEL org.opencontainers.image.ref.name=ubuntu
+# Tue, 30 May 2023 09:26:28 GMT
+LABEL org.opencontainers.image.version=18.04
+# Tue, 30 May 2023 09:26:29 GMT
+ADD file:3ed568ba86f7dcc948369fa5141ac64b558b1594643b1e8725d0e4790e4460ce in / 
+# Tue, 30 May 2023 09:26:30 GMT
+CMD ["/bin/bash"]
 ```
 
 -	Layers:
-	-	`sha256:97372e5b313b6b8bab9913de546bc50f73818d8275c94fc6491993c97b9d8bad`  
-		Last Modified: Fri, 01 Oct 2021 01:43:49 GMT  
-		Size: 25.4 MB (25362918 bytes)  
-		MIME: application/vnd.docker.image.rootfs.diff.tar.gzip
+	-	`sha256:63fbc30c112e96fb16b6b903d1edf79ebc150e4e30c9b57ac11fcbff2ac51e7d`  
+		Last Modified: Tue, 30 May 2023 10:04:05 GMT  
+		Size: 24.8 MB (24751131 bytes)  
+		MIME: application/vnd.oci.image.layer.v1.tar+gzip
